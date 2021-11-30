@@ -19,7 +19,15 @@ public class Intro {
         System.out.println(IntroTaskCat(2024));
         System.out.println(IntroTaskCat(11));
         System.out.println(IntroTaskCat(12361));
-
+        System.out.println("Задача IntroTaskQuadraticEquation");
+        System.out.println(IntroTaskQuadraticEquation(0, 0, 4));
+        System.out.println(IntroTaskQuadraticEquation(3, -14, -5));
+        System.out.println(IntroTaskQuadraticEquation(0, 5, 10));
+        System.out.println(IntroTaskQuadraticEquation(1, 0, -4));
+        System.out.println("Задача PrimalityTest");
+        System.out.println(PrimalityTest(311));
+        System.out.println(PrimalityTest(711));
+        System.out.println(PrimalityTest(1));
     }
 
     private static boolean Task3Digits(int a) {
@@ -51,7 +59,43 @@ public class Intro {
     }
 
     private static String IntroTaskQuadraticEquation(int k1, int k2, int k3) {
+        if (k1 == 0 && k2 == 0 && k3 == 0) {
+            return "решений бесконечно много";
+        }
+        else if (k1 == 0 && k2 != 0 && k3 != 0) {
+            float answ = (-k3)/k2;
+            return "одно решение x=" + answ;
+        }
+        else if (k1 == 0 && k2 == 0 && k3 != 0) {
+            return "решений нет";
+        }
+        else {
+            float D = k2 * k2 - 4 * k1 * k3;
+            if (D < 0) {
+                return "решений нет";
+            }
+            else if (D == 0) {
+                float answ = (-k2)/(2 * k1);
+                return "одно решение x=" + answ;
+            }
+            else {
+                float answ1 = (float) ((Math.sqrt(D)-k2)/(2 * k1));
+                float answ2 = (float) ((-Math.sqrt(D)-k2)/(2 * k1));
+                return "два решения x1=" + answ1 + " x2=" + answ2;
+            }
+        }
 
+    }
+
+    private static boolean PrimalityTest(int numb) {
+        if (numb < 2)
+            return true;
+        double sqrt = Math.sqrt(numb);
+        for (int i = 2; i <= sqrt; i++) {
+            if (numb % i == 0)
+                return false;
+        }
+        return true;
     }
 
 }
