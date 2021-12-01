@@ -11,9 +11,30 @@ public class MultidimentionalArrays {
         printTable(a);
         System.out.println("Задача printTableAligned");
         printTableAligned(a);
+
+        System.out.println("Задача заполнение массива");
+        char[][] c = createTable(20, '.');
+        printTable(c);
+
+        System.out.println("============ Заполним строки: ==========");
+        fillFirstAndLastLines(c, '#');
+        printTable(c);
+
+        System.out.println("============ Заполним столбцы: =========");
+        fillFirstAndLastColumns(c, '#');
+        printTable(c);
     }
 
     public static void printTable(int[][] a){
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a[i].length; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public static void printTable(char[][] a){
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
                 System.out.print(a[i][j] + " ");
@@ -40,6 +61,29 @@ public class MultidimentionalArrays {
                 System.out.print(" ".repeat(x) + a[i][j] + "  ");
             }
             System.out.print("\n");
+        }
+    }
+
+    public static char[][] createTable(int n, char ch){
+        char[][] table = new char[n][n];
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                table[i][j] = ch;
+            }
+        }
+        return table;
+    }
+
+    public static void fillFirstAndLastLines(char[][] table, char ch){
+        Arrays.fill(table[0], ch);
+        Arrays.fill(table[table.length-1], ch);
+    }
+
+
+    public static void fillFirstAndLastColumns(char[][] table, char ch){
+        for (int i = 0; i < table.length; i++) {
+            table[i][0] = ch;
+            table[i][table[i].length - 1] = ch;
         }
     }
 }
