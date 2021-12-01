@@ -79,7 +79,6 @@ public class MultidimentionalArrays {
         Arrays.fill(table[table.length-1], ch);
     }
 
-
     public static void fillFirstAndLastColumns(char[][] table, char ch){
         for (int i = 0; i < table.length; i++) {
             table[i][0] = ch;
