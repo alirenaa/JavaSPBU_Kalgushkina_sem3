@@ -5,7 +5,7 @@ public class Fibonacci {
 
     public static void calculation(int n) {
         Matrix22 matrix = new Matrix22(1, 1, 1, 0);
-        System.out.println(matrix.pow(n).getArray()[0][1]);
+        System.out.println((int)matrix.pow(n).getArray()[0][1]);
     }
 
 }

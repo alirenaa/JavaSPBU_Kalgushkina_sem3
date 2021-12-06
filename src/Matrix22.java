@@ -1,27 +1,27 @@
 public class Matrix22 {
-    private int[][] array = new int[2][2];
+    private double[][] array = new double[2][2];
 
-    Matrix22(int a, int b, int c, int d) {
+    Matrix22(double a, double b, double c, double d) {
         this.array[0][0] = a;
         this.array[0][1] = b;
         this.array[1][0] = c;
         this.array[1][1] = d;
     }
 
-    Matrix22(int[][] a) {
+    Matrix22(double[][] a) {
         this.array = a;
     }
 
 
-    int trace() {
+    double trace() {
         return this.array[0][0] - this.array[1][1];
     }
 
-    int discriminant() {
+    double discriminant() {
         return this.array[0][0] * this.array[1][1] - this.array[0][1] * this.array[1][0];
     }
 
-    public int[][] getArray() {
+    public double[][] getArray() {
         return array;
     }
 
@@ -37,7 +37,12 @@ public class Matrix22 {
     }
 
     public void print() {
-        MultidimentionalArrays.printTableAligned(array);
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+            System.out.print("\n");
+        }
     }
 
     public Matrix22 add(Matrix22 b){
@@ -69,8 +74,8 @@ public class Matrix22 {
     }
 
     public static void main(String args[]) {
-        MultidimentionalArrays.printTable(new Matrix22(1,2,3,4).getArray());
-        MultidimentionalArrays.printTable(new Matrix22(new int[][]{{1, 2}, {3, 4}}).getArray());
+        new Matrix22(1,2,3,4).print();
+        new Matrix22(new double[][]{{1, 2}, {3, 4}}).print();
         System.out.print(new Matrix22(1,2,3,4).toString());
         Matrix22 a = new Matrix22(1,2,3,1);
         Matrix22 b = new Matrix22(-1,3,1,1);

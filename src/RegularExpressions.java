@@ -31,7 +31,7 @@ public class RegularExpressions {
         System.out.println(cats("Кот который кот и КоТ и КотКОТ и котокот"));
 
         System.out.println("Задача add_one");
-        System.out.println(add_one("У меня 2 яблока и -4 банана"));
+        add_one("У меня 2 яблока и -4 банана");
     }
 
     private static void mail(String str) {
@@ -72,7 +72,19 @@ public class RegularExpressions {
         return count;
     }
 
-    private static int add_one(String str) {
-        return 1;
+    private static void add_one(String str) {
+        Pattern digits = Pattern.compile("(-)?([0-9]+)");
+        Matcher m = digits.matcher(str);
+        StringBuilder sb = new StringBuilder();
+
+        while (m.find()){
+            int digit = Integer.valueOf(m.group());
+            String replacement = String.valueOf(digit + 1);
+            m.appendReplacement(sb, replacement);
+        }
+
+        m.appendTail(sb);
+        String finalText = sb.toString();
+        System.out.println(finalText);
     }
 }
