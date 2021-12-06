@@ -48,16 +48,29 @@ public class MultidimentionalArrays {
         for (int i = 0; i < a.length; i++) {
             if (max_len < a[i].length) max_len = a[i].length;
         }
-        int[] max_numbers = new int[max_len]; // массив максимальных чисел в каждом столбце
+        int[] max_numbers = new int[max_len]; // массив максимальных длин чисел в каждом столбце
         for (int i = 0; i < a.length; i++) {
             for (int j = 0; j < a[i].length; j++) {
-                if (max_numbers[j] < a[i][j]) max_numbers[j] = a[i][j];
+                if (a[i][j] < 0) {
+                    if (max_numbers[j] < String.valueOf(Math.abs(a[i][j])).length() + 1)
+                        max_numbers[j] = String.valueOf(Math.abs(a[i][j])).length() + 1;
+                }
+                else {
+                    if (max_numbers[j] < String.valueOf(Math.abs(a[i][j])).length())
+                        max_numbers[j] = String.valueOf(Math.abs(a[i][j])).length();
+                }
             }
         }
 
         for (int i = 0; i < a.length; i++) {
+            int x = 0;
             for (int j = 0; j < a[i].length; j++) {
-                int x = String.valueOf(Math.abs(max_numbers[j])).length() - String.valueOf(Math.abs(a[i][j])).length();
+                if (a[i][j] < 0) {
+                    x = max_numbers[j] - String.valueOf(Math.abs(a[i][j])).length() - 1;
+                }
+                else {
+                    x = max_numbers[j] - String.valueOf(Math.abs(a[i][j])).length();
+                }
                 System.out.print(" ".repeat(x) + a[i][j] + "  ");
             }
             System.out.print("\n");

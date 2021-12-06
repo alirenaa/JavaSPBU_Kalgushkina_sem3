@@ -29,6 +29,9 @@ public class RegularExpressions {
 
         System.out.println("Задача KOT");
         System.out.println(cats("Кот который кот и КоТ и КотКОТ и котокот"));
+
+        System.out.println("Задача add_one");
+        System.out.println(add_one("У меня 2 яблока и -4 банана"));
     }
 
     private static void mail(String str) {
@@ -69,4 +72,7 @@ public class RegularExpressions {
         return count;
     }
 
+    private static int add_one(String str) {
+        return 1;
+    }
 }
