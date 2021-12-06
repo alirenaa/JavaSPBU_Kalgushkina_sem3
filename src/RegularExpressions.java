@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 
 
 public class RegularExpressions {
-    public static void main(String ags[]){
+    public static void main(String[] ags){
         System.out.println("Задача mail_Check");
         mail("name@gmail.com");
         mail("name@gmail.c");
