@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.ascigraphics;
+package oop;
 
 public class Drawing {
     char[][] array;

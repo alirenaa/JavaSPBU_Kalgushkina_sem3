@@ -1,4 +1,4 @@
-package ru.spbu.arts.java.oop.time;
+package oop;
 
 public class ExperimentsWithTime {
 
