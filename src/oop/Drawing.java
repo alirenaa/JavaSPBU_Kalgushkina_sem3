@@ -1,7 +1,7 @@
 package oop;
 
 public class Drawing {
-    char[][] array;
+    public char[][] array;
 
     Drawing(int x, int y, char sym) {
         this.array = new char[y][x];
